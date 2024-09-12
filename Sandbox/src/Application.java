@@ -13,6 +13,7 @@ public class Application implements Runnable {
         int player = 1;
         int[] storage = new int[10];
         boolean gameOver = false;
+        draw(storage);
 
         while (!gameOver && ticker<9) {
             SaxionApp.print("where");
@@ -27,10 +28,10 @@ public class Application implements Runnable {
                 draw(storage);
                 gameOver= winCon(storage,player);
                 ticker++;
+                //player switch
                 if (player == 1) {player = 2;} else{player = 1;}
             }
-            //doing conversion to accurate player selection
-            // TODO figure out when player conversion can happen.
+
         }
 
         if (player == 1) {player = 2;} else{player = 1;}
@@ -42,12 +43,14 @@ public class Application implements Runnable {
     }
     static void draw(int[] storage){
         int size = 100;
+        int crossSize = size+50;
         SaxionApp.clear();
+        SaxionApp.setTextDrawingColor(Color.black);
         SaxionApp.drawLine(150, 50, 150, 350);
         SaxionApp.drawLine(250, 50, 250, 350);
         SaxionApp.drawLine(50, 150, 350, 150);
         SaxionApp.drawLine(50, 250, 350, 250);
-        SaxionApp.setTextDrawingColor(Color.black);
+
         SaxionApp.drawText("1",80,50,size);
         SaxionApp.drawText("2",180,50,size);
         SaxionApp.drawText("3",280,50,size);
@@ -57,36 +60,36 @@ public class Application implements Runnable {
         SaxionApp.drawText("7",80,250,size);
         SaxionApp.drawText("8",180,250,size);
         SaxionApp.drawText("9",280,250,size);
-        SaxionApp.setTextDrawingColor(Color.BLUE);
         SaxionApp.setFill(Color.BLUE);
+        SaxionApp.setTextDrawingColor(Color.cyan);
         //todo refactor all of these if  statements to less lines
 
         if (storage[1] == 1) {SaxionApp.drawCircle(100, 100, 50);}
-        if (storage[1] == 2) {SaxionApp.drawText("x", 80, 50, size);}
+        if (storage[1] == 2) {SaxionApp.drawText("X", 80, 50, size);}
 
         if (storage[2] == 1) {SaxionApp.drawCircle(200, 100, 50);}
-        if (storage[2] == 2) {SaxionApp.drawText("x", 180, 50, size);}
+        if (storage[2] == 2) {SaxionApp.drawText("X", 180, 50, size);}
 
         if (storage[3] == 1) {SaxionApp.drawCircle(300, 100, 50);}
-        if (storage[3] == 2) {SaxionApp.drawText("x", 280, 50, size);}
+        if (storage[3] == 2) {SaxionApp.drawText("X", 280, 50, size);}
 
         if (storage[4] == 1) {SaxionApp.drawCircle(100, 200, 50);}
-        if (storage[4] == 2) {SaxionApp.drawText("x", 80, 150, size);}
+        if (storage[4] == 2) {SaxionApp.drawText("X", 80, 150, size);}
 
         if (storage[5] == 1) {SaxionApp.drawCircle(200, 200, 50);}
-        if (storage[5] == 2) {SaxionApp.drawText("x", 180, 150, size);}
+        if (storage[5] == 2) {SaxionApp.drawText("X", 180, 150, size);}
 
         if (storage[6] == 1) {SaxionApp.drawCircle(300, 200, 50);}
-        if (storage[6] == 2) {SaxionApp.drawText("x", 280, 150, size);}
+        if (storage[6] == 2) {SaxionApp.drawText("X", 280, 150, size);}
 
         if (storage[7] == 1) {SaxionApp.drawCircle(100, 300, 50);}
-        if (storage[7] == 2) {SaxionApp.drawText("x", 80, 250, size);}
+        if (storage[7] == 2) {SaxionApp.drawText("X", 80, 250, size);}
 
         if (storage[8] == 1) {SaxionApp.drawCircle(200, 300, 50);}
-        if (storage[8] == 2) {SaxionApp.drawText("x", 180, 250, size);}
+        if (storage[8] == 2) {SaxionApp.drawText("X", 180, 250, size);}
 
         if (storage[9] == 1) {SaxionApp.drawCircle(300, 300, 50);}
-        if (storage[9] == 2) {SaxionApp.drawText("x", 280, 250, size);}
+        if (storage[9] == 2) {SaxionApp.drawText("X", 280, 250, size);}
 
     }
     public Boolean winCon(int[] storage, int player){
